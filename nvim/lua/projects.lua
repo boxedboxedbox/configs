@@ -1,5 +1,5 @@
---[[ this doesn't seem to work.
---require("project_nvim").setup {
+-- this doesn't seem to work.
+require("project_nvim").setup {
     manual_mode = false,
 
     detection_methods = { "lsp", "pattern" },
@@ -19,4 +19,3 @@
 
     datapath = "~/.config/nvim/data/",
 }
-]]

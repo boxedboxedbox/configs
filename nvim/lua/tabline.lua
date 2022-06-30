@@ -4,8 +4,8 @@ require'bufferline'.setup {
 	tabpages = true,
 	closable = true,
 	clickable = true,
-	exclude_ft = {'javascript'},
-	exclude_name = {'package.json'},
+	exclude_ft = {'javascript', ""},
+	exclude_name = {'package.json', "/bin/bash", "/bin/zsh"},
 
 	icons = true,
 	icon_custom_colors = false,

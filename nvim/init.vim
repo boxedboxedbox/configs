@@ -17,3 +17,4 @@ source $HOME/.config/nvim/lua/treesitter.lua
 source $HOME/.config/nvim/lua/files.lua
 source $HOME/.config/nvim/lua/fuzzyfinder.lua
 source $HOME/.config/nvim/lua/dashboard.lua
+source $HOME/.config/nvim/lua/projects.lua
