@@ -1,4 +1,3 @@
--- this is a mess, but don't care
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function()
@@ -7,7 +6,6 @@ return require('packer').startup(function()
 	use 'kyazdani42/nvim-web-devicons'
 	use 'neovim/nvim-lspconfig'
 	use 'simrat39/rust-tools.nvim'
-    use 'onsails/lspkind.nvim'
     use 'nvim-treesitter/nvim-treesitter'
 	use {
    	    'kyazdani42/nvim-tree.lua',
@@ -41,7 +39,7 @@ return require('packer').startup(function()
 	}
     use {
         'nvim-telescope/telescope.nvim',
-        requires = { {'nvim-lua/plenary.nvim'} }
+        requires = { 'nvim-lua/plenary.nvim' }
     }
     use {
         'nvim-telescope/telescope-fzf-native.nvim',
@@ -54,6 +52,6 @@ return require('packer').startup(function()
             require'alpha'.setup(require'alpha.themes.dashboard'.config)
         end
     }
-    use "ahmedkhalf/project.nvim"
     use "rust-lang/rust.vim"
+    use "numToStr/FTerm.nvim"
 end)

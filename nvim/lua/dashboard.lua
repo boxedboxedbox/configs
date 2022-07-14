@@ -1,5 +1,5 @@
 -- This file is a horrible mess. (And I didn't write this)
-
+-- And the indentation is screwed too. (That was my fault)
 if (vim.api.nvim_exec('echo argc()', true) == "0")
 then
    local function split(s)
@@ -24,7 +24,6 @@ then
       end
       table.insert(t, line)
    end
-   -- Center all strings by the longest
    for i = 1, #t do
       local space = longest - #t[i]
       local left = math.floor(space/2)
@@ -34,7 +33,6 @@ then
    return t
 end
 
-  -- Function to retrieve console output.
 local function capture(cmd)
    local handle = assert(io.popen(cmd, 'r'))
    local output = assert(handle:read('*a'))
@@ -102,7 +100,7 @@ local function button(sc, txt, keybind, keybind_opts)
 
     local header = {
         type = "text",
-        val = Headers[2], -- lua be like: arrays start at 1.
+        val = Headers[2],
         opts = {
             position = "center",
             hl = "Type"
@@ -126,7 +124,6 @@ local function button(sc, txt, keybind, keybind_opts)
          button("e", "  New Buffer",            ':tabnew<CR>'),
          button("f", "  Find file",             ':Telescope find_files<CR>'),
          button("h", "  Recently opened files", ':Telescope oldfiles<CR>'),
-         button("r", "  Recent projects",       ':Telescope projects<CR>'),
          button("m", "  Word Finder",           ':Telescope live_grep<CR>'),
       },
       opts = {
@@ -134,12 +131,12 @@ local function button(sc, txt, keybind, keybind_opts)
       }
    }
 
-   local ol = { -- occupied lines
-      icon = #header.val,            -- CONST: number of lines that your header will occupy
-      message = 1 + #footer.val,             -- CONST: because of padding at the bottom
-      length_buttons = #buttons.val * 2 - 1, -- CONST: it calculate the number that buttons will occupy
-      neovim_lines = 3,                      -- CONST: 2 of command line, 1 of the top bar
-      padding_between = 2,                   -- STATIC: can be set to anything, padding between keybinds and header
+   local ol = {
+      icon = #header.val,
+      message = 1 + #footer.val,
+      length_buttons = #buttons.val * 2 - 1,
+      neovim_lines = 3,
+      padding_between = 2,
    }
 
    local left_terminal_value = vim.api.nvim_get_option('lines') - (ol.length_buttons + ol.message + ol.padding_between + ol.icon + ol.neovim_lines)

@@ -1,5 +1,3 @@
--- this is a mess, but don't care
-
 vim.opt.compatible = false
 vim.opt.showmatch = true
 vim.opt.clipboard = "unnamedplus"
@@ -22,7 +20,7 @@ vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.swapfile = false
 vim.opt.signcolumn = "yes"
-vim.opt.wildignore = "target/*,"
+vim.opt.wildignore = "target"
 vim.opt.list = false
 vim.opt.listchars = {eol = " ", tab = "  ", trail = " "}
 vim.opt.hlsearch = true

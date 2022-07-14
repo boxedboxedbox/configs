@@ -29,18 +29,18 @@ local kind_icons = {
 }
 
 cmp.setup({
-   enabled = function()
-      local context = require 'cmp.config.context'
-      if vim.api.nvim_get_mode().mode == 'c' then
-         return true
-      else
-         return not context.in_treesitter_capture("comment") 
-            and not context.in_syntax_group("Comment")
-      end
-   end,
+    enabled = function()
+        local context = require 'cmp.config.context'
+        if vim.api.nvim_get_mode().mode == 'c' then
+            return true
+        else
+            return not context.in_treesitter_capture("comment") 
+                and not context.in_syntax_group("Comment")
+        end
+    end,
 	snippet = {
 		expand = function(args)
-         require('luasnip').lsp_expand(args.body)
+            require('luasnip').lsp_expand(args.body)
 		end,
 	},
 	mapping = {
@@ -59,18 +59,20 @@ cmp.setup({
 		{ name = 'buffer' },
 	},
 	formatting = {
-      format = function(entry, vim_item)
-         vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind)
+        format = function(entry, vim_item)
+            vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind)
          
-         vim_item.menu = ({
-            buffer = "[Buffer]",
-            nvim_lsp = "[LSP]",
-            luasnip = "[LuaSnip]",
-            nvim_lua = "[Lua]",
-            latex_symbols = "[LaTeX]",
-         })[entry.source.name]
+            vim_item.menu = ({
+                buffer = "[Buffer]",
+                nvim_lsp = "[LSP]",
+                luasnip = "[LuaSnip]",
+                nvim_lua = "[Lua]",
+                latex_symbols = "[LaTeX]",
+            })[entry.source.name]
          
-         return vim_item
-      end
+            return vim_item
+        end
 	},
 })
+
+require("luasnip.loaders.from_vscode").lazy_load()

@@ -720,7 +720,7 @@ hi! link Type GruvboxYellow
 " static, register, volatile, etc
 hi! link StorageClass GruvboxOrange
 " struct, union, enum, etc.
-hi! link Structure GruvboxAqua
+hi! link Structure GruvboxRed
 " typedef
 hi! link Typedef GruvboxYellow
 
@@ -729,7 +729,7 @@ hi! link Typedef GruvboxYellow
 
 if version >= 700
   " Popup menu: normal item
-  call s:HL('Pmenu', s:gb.fg1, s:gb.bg2)
+  call s:HL('Pmenu', s:gb.fg1, s:gb.bg1)
   " Popup menu: selected item
   call s:HL('PmenuSel', s:gb.bg2, s:gb.blue, s:bold)
   " Popup menu: scrollbar
@@ -1101,8 +1101,8 @@ hi! link TelescopeNormal GruvboxFg1
 hi! link TelescopeSelection GruvboxOrange
 hi! link TelescopeSlectionCaret GruvboxRed
 hi! link TelescopeMultiSelection GruvboxGray
-hi! link TelescopeBorder GruvboxAqua
-hi! link TelescopePromptBorder GruvboxOrange
+hi! link TelescopeBorder GruvboxOrange
+hi! link TelescopePromptBorder GruvboxAqua
 hi! link TelescopeResultsBorder GruvboxPurpleBold
 hi! link TelescopePreviewBorder GruvboxYellow
 hi! link TelescopeMatching GruvboxBlue
@@ -1677,7 +1677,7 @@ hi! link rustSigil GruvboxOrange
 hi! link rustEscape GruvboxAqua
 hi! link rustStringContinuation GruvboxAqua
 hi! link rustEnum GruvboxAqua
-hi! link rustStructure GruvboxAqua
+hi! link rustStructure GruvboxRed
 hi! link rustModPathSep GruvboxFg2
 hi! link rustCommentLineDoc Comment
 hi! link rustDefault GruvboxAqua
