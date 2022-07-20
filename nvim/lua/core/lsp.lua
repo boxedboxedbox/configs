@@ -1,5 +1,5 @@
 local on_attach = function(client)
-    require('completion').on_attach(client)
+    require("completion").on_attach(client)
 end
 
 require("lspconfig").rust_analyzer.setup({
@@ -133,7 +133,7 @@ local opts = {
 	},
 }
 
-require('rust-tools').setup(opts)
-require('rust-tools.inlay_hints').set_inlay_hints()
+require("rust-tools").setup(opts)
+require("rust-tools.inlay_hints").set_inlay_hints()
 
 vim.lsp.set_log_level("error")

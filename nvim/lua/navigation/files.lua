@@ -1,3 +1,14 @@
+require("project_nvim").setup({
+    manual_mode = false,
+    detection_methods = { "lsp", "pattern" },
+    patterns = { ".git",  "Makefile", "Cargo.toml", "src" },
+    ignore_lsp = {},
+    exclude_dirs = { "~/.cargo/*" },
+    show_hidden = true,
+    silent_chdir = true,
+    datapath = vim.fn.stdpath("data"),
+})
+
 require("nvim-tree").setup {
     auto_reload_on_write = true,
     create_in_closed_folder = false,
@@ -10,14 +21,14 @@ require("nvim-tree").setup {
     open_on_setup_file = false,
     open_on_tab = false,
     sort_by = "name",
-    update_cwd = false,
+    update_cwd = true,
     reload_on_bufenter = false,
-    respect_buf_cwd = false,
+    respect_buf_cwd = true,
     view = {
         adaptive_size = false,
         centralize_selection = false,
-        width = 20,
-        height = 20,
+        width = 25,
+        height = 25,
         hide_root_folder = false,
         side = "left",
         preserve_window_proportions = false,
@@ -64,8 +75,8 @@ require("nvim-tree").setup {
             folder = {
                 arrow_closed = "",
                 arrow_open = "",
-                default = "",
-                open = "",
+                default = "",
+                open = "",
                 empty = "",
                 empty_open = "",
                 symlink = "",
@@ -89,8 +100,8 @@ require("nvim-tree").setup {
         auto_open = true,
     },
     update_focused_file = {
-        enable = false,
-        update_cwd = false,
+        enable = true,
+        update_cwd = true,
         ignore_list = {},
     },
     ignore_ft_on_setup = {},
@@ -118,7 +129,7 @@ require("nvim-tree").setup {
         interval = 100,
     },
     git = {
-        enable = false,
+        enable = true,
         ignore = true,
         timeout = 400,
     },
@@ -149,7 +160,7 @@ require("nvim-tree").setup {
         },
     },
     trash = {
-        cmd = "gio trash",
+        cmd = "rm",
         require_confirm = true,
     },
     live_filter = {

@@ -1,14 +1,14 @@
--- This file is a horrible mess. (And I didn't write this)
+-- This file is a horrible mess. (And I didn"t write this)
 -- And the indentation is screwed too. (That was my fault)
-if (vim.api.nvim_exec('echo argc()', true) == "0")
+if (vim.api.nvim_exec("echo argc()", true) == "0")
 then
    local function split(s)
    local t = {}
-   local max_line_length = vim.api.nvim_get_option('columns')
+   local max_line_length = vim.api.nvim_get_option("columns")
    local longest = 0
    for far in s:gmatch("[^\r\n]+") do
       local line
-      far:gsub('(%s*)(%S+)',
+      far:gsub("(%s*)(%S+)",
       function(spc, word)
          if not line or #line + #spc + #word > max_line_length then
             table.insert(t, line)
@@ -28,14 +28,14 @@ then
       local space = longest - #t[i]
       local left = math.floor(space/2)
       local right = space - left
-      t[i] = string.rep(' ', left) .. t[i] .. string.rep(' ', right)
+      t[i] = string.rep(" ", left) .. t[i] .. string.rep(" ", right)
    end
    return t
 end
 
 local function capture(cmd)
-   local handle = assert(io.popen(cmd, 'r'))
-   local output = assert(handle:read('*a'))
+   local handle = assert(io.popen(cmd, "r"))
+   local output = assert(handle:read("*a"))
    handle:close()
    return output
 end
@@ -57,7 +57,7 @@ local function button(sc, txt, keybind, keybind_opts)
    end
 
    local function on_press()
-      local key = vim.api.nvim_replace_termcodes(sc_ .. '<Ignore>', true, false, true)
+      local key = vim.api.nvim_replace_termcodes(sc_ .. "<Ignore>", true, false, true)
       vim.api.nvim_feedkeys(key, "normal", false)
    end
 
@@ -110,7 +110,7 @@ local function button(sc, txt, keybind, keybind_opts)
 
     local footer = {
         type = "text",
-        val = split(capture('rdn')),
+        val = split(capture("rdn")),
         hl = "NvimTreeRootFolder",
         opts = {
             position = "center",
@@ -121,10 +121,10 @@ local function button(sc, txt, keybind, keybind_opts)
   local buttons = {
       type = "group",
       val = {
-         button("e", "  New Buffer",            ':tabnew<CR>'),
-         button("f", "  Find file",             ':Telescope find_files<CR>'),
-         button("h", "  Recently opened files", ':Telescope oldfiles<CR>'),
-         button("m", "  Word Finder",           ':Telescope live_grep<CR>'),
+         button("e", "  New Buffer",            ":tabnew<CR>"),
+         button("f", "  Find file",             ":Telescope find_files<CR>"),
+         button("h", "  Recently opened files", ":Telescope oldfiles<CR>"),
+         button("m", "  Word Finder",           ":Telescope live_grep<CR>"),
       },
       opts = {
          spacing = 1
@@ -139,7 +139,7 @@ local function button(sc, txt, keybind, keybind_opts)
       padding_between = 2,
    }
 
-   local left_terminal_value = vim.api.nvim_get_option('lines') - (ol.length_buttons + ol.message + ol.padding_between + ol.icon + ol.neovim_lines)
+   local left_terminal_value = vim.api.nvim_get_option("lines") - (ol.length_buttons + ol.message + ol.padding_between + ol.icon + ol.neovim_lines)
    local top_padding = math.floor(left_terminal_value / 2)
    local bottom_padding = left_terminal_value - top_padding
 
@@ -157,5 +157,5 @@ local function button(sc, txt, keybind, keybind_opts)
       },
    }
 
-   require('alpha').setup(opts)
+   require("alpha").setup(opts)
 end
