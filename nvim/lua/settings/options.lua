@@ -1,6 +1,6 @@
-vim.opt.compatible = false
 vim.opt.showmatch = true
 vim.opt.clipboard = "unnamedplus"
+vim.opt.ignorecase = true
 vim.opt.cursorline = true
 vim.opt.hidden = true
 vim.opt.inccommand = "split"

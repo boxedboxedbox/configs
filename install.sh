@@ -1,10 +1,25 @@
 sudo pacman -Sy unzip
 
+echo Configuring Git...
+printf "Your username for Git\n>>> "
+read GIT_USERNAME
+printf "Your email for Git\n>>> "
+read GIT_EMAIL
+printf "Your GitHub account name\n>>> "
+read GITHUB_USERNAME
+
+sed -i "s/\$EMAIL/$GIT_EMAIL/" .gitconfig
+sed -i "s/\$NAME/$GIT_USERNAME/" .gitconfig
+sed -i "s/\$GHNAME/$GITHUB_USERNAME/" .gitconfig
+
 echo Installing configuration files...
-cp alacritty ~/.config
-cp nvim ~/.config
+cp -r alacritty ~/.config
+cp -r nvim ~/.config
 cp .bashrc ~/.bashrc
-cp bottom.toml ~/.config
+cp -r bottom ~/.config
+cp -r neofetch ~/.config
+cp .gitconfig ~
+cp .gitignore ~
 
 echo Installing fonts, icons and themes...
 mkdir temp-asdghitryrytiyuuiawd

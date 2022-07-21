@@ -46,27 +46,22 @@ return require("packer").startup(function()
         run =
             "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build"
     }
-    use {
-        "goolord/alpha-nvim",
-        --[[ config = function ()
-            require"alpha".setup(require"alpha.themes.dashboard".config)
-        end]]
-    }
+    use "goolord/alpha-nvim"
     use "rust-lang/rust.vim"
     use "numToStr/FTerm.nvim"
     use {
 	    "windwp/nvim-autopairs",
-        config = function()
-            require("nvim-autopairs").setup({})
-        end
+        -- config = function()
+            -- require("nvim-autopairs").setup({})
+        -- end
     }
     use {
         "phaazon/hop.nvim",
         branch = "v2",
-        config = function()
-            require("hop").setup({ keys = "qwertyasdfghzxcvb" })
-        end
     }
     use "norcalli/nvim-colorizer.lua"
     use "ahmedkhalf/project.nvim"
+    use "xiyaowong/nvim-transparent"
+    use "sbdchd/neoformat"
+    use ""
 end)

@@ -101,3 +101,7 @@ vim.keymap.set("t", "<A-t>", "<C-\\><C-n><CMD>lua require('FTerm').toggle()<CR>"
 -- Hop {{{
 keymap("", "f", ":HopWord<CR>", opts)
 -- }}}
+
+-- Switch files {{{
+keymap("n", "z", "<cmd>lua require('navigation.switchfiles').switch_files()<CR>", opts)
+-- }}}

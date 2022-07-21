@@ -1,0 +1,10 @@
+[user]
+	email = $EMAIL
+    name = $NAME
+[core]
+    excludesfile = ~/.gitignore
+    editor = nvim
+[init]
+    defaultBranch = master
+[github]
+user = $GHNAME

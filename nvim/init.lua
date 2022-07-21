@@ -18,6 +18,7 @@ require("settings.keybinds")
 require("navigation.files")
 require("navigation.finder")
 require("navigation.jump")
+require("navigation.switchfiles")
 
 require("visual.statusline")
 require("visual.tabline")

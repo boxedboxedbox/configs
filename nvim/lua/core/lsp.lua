@@ -2,7 +2,24 @@ local on_attach = function(client)
     require("completion").on_attach(client)
 end
 
-require("lspconfig").rust_analyzer.setup({
+vim.api.nvim_exec([[
+    let g:neoformat_c_clangformat = {
+        \ 'exe': 'clang-format',
+        \ 'args': ['-style=file'],
+        \ }
+
+    let g:neoformat_cpp_clangformat = {
+        \ 'exe': 'clang-format',
+        \ 'args': ['-style=file'],
+        \ }
+
+    let g:neoformat_enabled_cpp = ['clangformat']
+    let g:neoformat_enabled_c = ['clangformat']
+]], false)
+
+local lspconfig = require("lspconfig")
+
+lspconfig.rust_analyzer.setup({
     on_attach = on_attach,
     settings = {
         ["rust-analyzer"] = {
