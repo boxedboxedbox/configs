@@ -1,2 +1,3 @@
-target/
-build/
+nvim/plugin
+nvim/data
+
