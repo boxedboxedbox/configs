@@ -12,3 +12,4 @@ I don't accept contributions to these configs.
 
 # Installation
 `./install.sh` to install configurations and themes automatically.
+`./install-tools.sh` to install tools (some from source, some with the package manager) NOTE: I haven't tested this yet.
