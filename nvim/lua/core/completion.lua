@@ -50,13 +50,13 @@ cmp.setup({
 		["<C-f>"] = cmp.mapping.scroll_docs(4),
 		["<C-Space>"] = cmp.mapping.complete(),
 		["<C-e>"] = cmp.mapping.close(),
-		["<CR>"] = cmp.mapping.confirm({select = true,}),
+		["<CR>"] = cmp.mapping.confirm({select = true}),
 	},
 	sources = {
-		{ name = "nvim_lsp" },
-		{ name = "luasnip" },
-		{ name = "path" },
-		{ name = "buffer" },
+		{name = "nvim_lsp"},
+		{name = "luasnip"},
+		{name = "path"},
+		{name = "buffer"},
 	},
 	formatting = {
         format = function(entry, vim_item)
@@ -76,8 +76,8 @@ cmp.setup({
 })
 
 local npairs = require("nvim-autopairs")
--- local Rule = require("nvim-autopairs.rule")
--- local cond = require("nvim-autopairs.conds")
+local Rule = require("nvim-autopairs.rule")
+local cond = require("nvim-autopairs.conds")
 local handlers = require("nvim-autopairs.completion.handlers")
 local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 
@@ -98,7 +98,6 @@ npairs.setup({
     map_c_w = false, -- map <c-w> to delete a pair if possible
 })
 
-
 cmp.event:on(
     "confirm_done",
     cmp_autopairs.on_confirm_done({
@@ -115,5 +114,23 @@ cmp.event:on(
         tex = false
     }
 }))
+
+-- I found a perfect regex string,
+-- but either Lua or autopairs doesn't want to work with it.
+-- Regex pattern: %w \( %s*? | .*? |
+-- Time wasted = 3 to 4 hours, I don't even know anymore.
+-- Also, that "use_regex" is a bit misleading, because it's actually Lua pattern that it's executing.
+npairs.add_rule(Rule("%w%(|.*|", " {}", "rust")
+    :use_regex(true, "|")
+)
+
+npairs.add_rule(Rule("<", ">", "rust"))
+
+npairs.add_rule(Rule(" ", " ")
+    :with_pair(function(opts)
+        local pair = opts.line:sub(opts.col - 1, opts.col)
+        return vim.tbl_contains({"()", "[]", "{}"}, pair)
+	end)
+)
 
 require("luasnip.loaders.from_vscode").lazy_load()

@@ -7,24 +7,25 @@ vim.api.nvim_exec([[
     colorscheme gruvbox
 ]], false)
 
-require("core.lsp")
+require("core.autocmds")
 require("core.completion")
-require("core.treesitter")
+require("core.keybinds")
+require("core.lsp")
+require("core.options")
 require("core.plugins")
-
-require("settings.options")
-require("settings.keybinds")
+require("core.treesitter")
 
 require("navigation.files")
 require("navigation.finder")
 require("navigation.jump")
 require("navigation.switchfiles")
 
+require("utils.commenter")
+require("utils.compile")
+
+require("visual.colors")
+require("visual.dashboard")
+require("visual.indentation")
 require("visual.statusline")
 require("visual.tabline")
-require("visual.indentation")
-require("visual.dashboard")
 require("visual.terminal")
-require("visual.colors")
-
-require("utils.commenter")

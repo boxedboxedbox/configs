@@ -1,8 +1,9 @@
 require("colorizer").setup({
     css = { rgb_fn = true, names = true; };
-    lua = { RGB = true, RRGGBB = true; },
+    lua = { RGB = true, RRGGBB = true; };
+    html = { RGB = true, RRGGBB = true };
+    yaml = { RGB = true, RRGGBB = true };
     "javascript";
-    "html";
 }, {
     names = false,
     RGB = false,

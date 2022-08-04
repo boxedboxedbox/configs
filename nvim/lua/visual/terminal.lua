@@ -1,10 +1,10 @@
 require("FTerm").setup({
-    ft = "FTerm",
+    ft = "Term",
     cmd = os.getenv("SHELL"),
     border = "single",
     auto_close = true,
     hl = "Terminal",
-    blend = 7,
+    blend = 5,
     dimensions = {
         height = 0.9,
         width = 0.9,

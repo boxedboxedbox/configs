@@ -29,13 +29,13 @@ keymap("n", "sf", ":vs<CR>", opts)
 -- Close split windows (sd)
 keymap("n", "sd", "<C-w>c", opts)
 -- Write changes (ctrl + s)
-keymap("n", "<C-s>", ":w<CR>", opts)
-keymap("i", "<C-s>", ":w<CR>", opts)
+keymap("n", "<C-s>", "<cmd>w<CR>", opts)
+keymap("i", "<C-s>", "<cmd>w<CR>", opts)
 -- Move backwards/forwards a word (q/w) 
 keymap("n", "q", "b", opts)
 -- Jump to the start/end of current line (u/i)
-keymap("n", "u", "0", opts)
-keymap("n", "i", "$", opts)
+keymap("n", ";", "0", opts)
+keymap("n", "'", "$", opts)
 -- Undo (ctrl + z)
 keymap("n", "<C-z>", "<cmd>u<CR>", opts)
 keymap("i", "<C-z>", "<cmd>u<CR>", opts)
@@ -66,24 +66,24 @@ keymap("n", "<A-x>", ":BufferClose<CR>", opts)
 -- }}}
 
 -- File Explorer (nvimtree) {{{
-keymap("n", "<leader>d", ":NvimTreeToggle<CR>", opts)
+keymap("n", "<leader>d", "<cmd>NvimTreeToggle<CR><cmd>setlocal statusline=%#nvimtreeStatusbar#<CR>", opts)
 keymap("n", "<leader>s", ":NvimTreeFocus<CR>", opts)
 keymap("n", "<leader>r", ":NvimTreeRefresh<CR>", opts)
 keymap("n", "<leader>a", ":NvimTreeFindFile<CR>", opts)
 -- }}}
 
 -- LSP {{{
-keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
-keymap("n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
-keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-keymap("n", "gt", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
-keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
-keymap("n", "gs", "<cmd>lua vim.lsp.buf.document_symbol()<CR>", opts)
-keymap("n", "gw", "<cmd>lua vim.lsp.buf.workspace_symbol()<CR>", opts)
-keymap("n", "g[", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
-keymap("n", "g]", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
-keymap("n", "ga", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
+keymap("n", "K", ":lua vim.lsp.buf.hover()<CR>", opts)
+keymap("n", "<C-k>", ":lua vim.lsp.buf.signature_help()<CR>", opts)
+keymap("n", "gi", ":lua vim.lsp.buf.implementation()<CR>", opts)
+keymap("n", "gd", ":lua vim.lsp.buf.definition()<CR>", opts)
+keymap("n", "gt", ":lua vim.lsp.buf.type_definition()<CR>", opts)
+keymap("n", "gr", ":lua vim.lsp.buf.references()<CR>", opts)
+keymap("n", "gs", ":lua vim.lsp.buf.document_symbol()<CR>", opts)
+keymap("n", "gw", ":lua vim.lsp.buf.workspace_symbol()<CR>", opts)
+keymap("n", "g[", ":lua vim.diagnostic.goto_prev()<CR>", opts)
+keymap("n", "g]", ":lua vim.diagnostic.goto_next()<CR>", opts)
+keymap("n", "ga", ":lua vim.lsp.buf.code_action()<CR>", opts)
 -- }}
 
 -- Fuzzy finder (Telescope) {{{
@@ -94,8 +94,8 @@ keymap("n", "<leader>fh", ":Telescope help_tags<CR>", opts)
 -- }}}
 
 -- Terminal (FTerm) {{{
-vim.keymap.set("n", "<A-t>", "<cmd>lua require('FTerm').toggle()<CR>")
-vim.keymap.set("t", "<A-t>", "<C-\\><C-n><CMD>lua require('FTerm').toggle()<CR>")
+keymap("n", "<A-t>", "<cmd>lua require('FTerm').toggle()<CR>", opts)
+keymap("t", "<A-t>", "<C-\\><C-n><cmd>lua require('FTerm').toggle()<CR>", opts)
 -- }}}
 
 -- Hop {{{
@@ -103,5 +103,11 @@ keymap("", "f", ":HopWord<CR>", opts)
 -- }}}
 
 -- Switch files {{{
-keymap("n", "z", "<cmd>lua require('navigation.switchfiles').switch_files()<CR>", opts)
+keymap("n", "z", ":lua require('navigation.switchfiles').switch_files()<CR>", opts)
+-- }}}
+
+-- Compile code (and run it) {{{
+keymap("n", "gr", ":lua require('utils.compile').run(nil)<CR>", opts)
+keymap("n", "gcr", ":lua require('utils.compile').run('release')<CR>", opts)
+keymap("n", "gce", ":lua require('utils.compile').build('release')<CR>", opts)
 -- }}}

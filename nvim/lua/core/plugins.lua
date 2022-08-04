@@ -49,19 +49,12 @@ return require("packer").startup(function()
     use "goolord/alpha-nvim"
     use "rust-lang/rust.vim"
     use "numToStr/FTerm.nvim"
-    use {
-	    "windwp/nvim-autopairs",
-        -- config = function()
-            -- require("nvim-autopairs").setup({})
-        -- end
-    }
+    use "windwp/nvim-autopairs"
     use {
         "phaazon/hop.nvim",
         branch = "v2",
     }
     use "norcalli/nvim-colorizer.lua"
     use "ahmedkhalf/project.nvim"
-    use "xiyaowong/nvim-transparent"
     use "sbdchd/neoformat"
-    use ""
 end)

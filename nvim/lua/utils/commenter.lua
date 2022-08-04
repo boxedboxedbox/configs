@@ -3,12 +3,12 @@ require("Comment").setup({
     sticky = true,
     ignore = nil,
     toggler = {
-        line = "gcc",
-        block = "gbc",
+        line = "ct",
+        block = nil
     },
     opleader = {
-        line = "gc",
-        block = "gb",
+        line = "cc",
+        block = "cb",
     },
     mappings = {
         basic = true,

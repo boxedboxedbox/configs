@@ -50,9 +50,9 @@ end
 
 M = {}
 
--- function M.setup(config)
-    -- opts = config or opts
--- end
+--[[ function M.setup(config)
+    opts = config or opts
+end]]
 
 function M.switch_files()
     local ft = vim.fn.expand("%:e")

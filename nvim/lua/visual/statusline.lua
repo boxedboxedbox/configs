@@ -1,6 +1,7 @@
 local colors = {
     bg0          = "#3b3634",
     bg1          = "#201f1e",
+    bg2          = "#292e28",
     white        = "#ebdbb2",
     black        = "#1d1d1d",
     green        = "#35ad68",
@@ -8,7 +9,9 @@ local colors = {
     orange       = "#fe8019",
     yellow       = "#b8bb26",
     red          = "#fb4934",
+    purple       = "#713184",
     gray         = "#3c3836",
+    gray1        = "#707070",
 }
 
 local custom_theme = {
@@ -38,9 +41,9 @@ local custom_theme = {
         c = {bg = colors.bg1, fg = colors.white}
     },
     inactive = {
-        a = {bg = colors.gray, fg = colors.gray, gui = "bold"},
-        b = {bg = colors.bg0, fg = colors.gray},
-        c = {bg = colors.black, fg = colors.gray}
+        a = {bg = colors.purple, fg = colors.black, gui = "bold"},
+        b = {bg = colors.bg2, fg = colors.gray1},
+        c = {bg = colors.bg1, fg = colors.gray}
     }
 }
 
@@ -50,7 +53,7 @@ require("lualine").setup({
 		theme = custom_theme,
 		component_separators = { left = "", right = ""},
 		section_separators = { left = "", right = ""},
-		disabled_filetypes = {},
+		disabled_filetypes = {"packer", "NvimTree"},
 		always_divide_middle = true,
 		globalstatus = false,
 	},
@@ -58,17 +61,17 @@ require("lualine").setup({
 		lualine_a = {"mode"},
 		lualine_b = {"filename"},
 		lualine_c = {"branch", "diagnostics"},
-		lualine_x = {"fileformat", "filetype"},
+		lualine_x = {"filetype"},
 		lualine_y = {"progress"},
 		lualine_z = {"location"}
 	},
 	inactive_sections = {
-		lualine_a = {},
-		lualine_b = {},
-		lualine_c = {"filename"},
-	    lualine_x = {"location"},
-		lualine_y = {},
-		lualine_z = {}
+		lualine_a = {"mode"},
+		lualine_b = {"filename"},
+		lualine_c = {"branch", "diagnostics"},
+	    lualine_x = {"filetype"},
+		lualine_y = {"progress"},
+		lualine_z = {"location"}
 	},
 	tabline = {},
 	extensions = {}

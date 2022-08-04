@@ -1,6 +1,6 @@
 sudo pacman -Sy unzip
 
-echo Configuring Git...
+echo Configuring Git files...
 printf "Your username for Git\n>>> "
 read GIT_USERNAME
 printf "Your email for Git\n>>> "
@@ -14,16 +14,16 @@ sed -i "s/\$GHNAME/$GITHUB_USERNAME/" git/.gitconfig
 
 echo Installing configuration files...
 cp -r alacritty ~/.config
-cp -r nvim ~/.config
-cp .bashrc ~/.bashrc
 cp -r bottom ~/.config
+cp git/* ~
 cp -r neofetch ~/.config
-cp git/.gitconfig ~
-cp git/.gitignore ~
+cp -r nvim ~/.config
+cp scripts/* ~
+cp other/cargo_completions ~/.cargo
+cp .bashrc ~/.bashrc
+cp -r wallpapers ~
 
 echo Installing fonts, icons and themes...
-mkdir temp-asdghitryrytiyuuiawd
-cd temp-asdghitryrytiyuuiawd
 
 unzip candy-icons-master.zip
 unzip fira-code.zip
@@ -34,7 +34,5 @@ sudo mv candy-icons /usr/share/icons
 sudo mv fira-code /usr/share/fonts
 sudo mv Sweet-Dark /usr/share/themes
 sudo mv boxedboxedxfwm /usr/share/themes
-
-rm -rf temp-asdghitryrytiyuuiawd
 
 echo Installation done!

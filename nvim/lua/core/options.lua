@@ -27,3 +27,18 @@ vim.opt.hlsearch = true
 vim.opt.incsearch = true
 vim.opt.ttyfast = true
 vim.opt.spell = true
+vim.opt.signcolumn = "yes:1"
+
+local disabled_builtins = {
+	"netrwPlugin",
+	"tohtml",
+	"man",
+	"tarPlugin",
+	"zipPlugin",
+	"gzip"
+}
+
+for i = 1, table.maxn(disabled_builtins)
+do
+	vim.g["loaded_" .. disabled_builtins[i]] = 1
+end

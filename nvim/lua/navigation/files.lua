@@ -50,11 +50,11 @@ require("nvim-tree").setup {
         highlight_opened_files = "none",
         root_folder_modifier = ":~",
         indent_markers = {
-        enable = false,
+        enable = true,
         icons = {
             corner = "└ ",
             edge = "│ ",
-            item = "│ ",
+            item = "├ ",
             none = "  ",
         },
     },
@@ -126,7 +126,7 @@ require("nvim-tree").setup {
     },
     filesystem_watchers = {
         enable = false,
-        interval = 100,
+        debounce_delay = 100,
     },
     git = {
         enable = true,
