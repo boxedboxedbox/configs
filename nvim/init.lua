@@ -20,6 +20,7 @@ require("navigation.finder")
 require("navigation.jump")
 require("navigation.switchfiles")
 
+require("utils.autopairs")
 require("utils.commenter")
 require("utils.compile")
 

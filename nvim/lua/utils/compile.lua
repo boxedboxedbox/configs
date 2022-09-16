@@ -5,10 +5,14 @@ M = {}
 -- # means the current file
 -- Syntax of the command: "nil" | program n ( arguments | "#" ) 
 opts = {
-    -- List of compiled languages (expects run_release, build_release and build_debug if found in this list)
+    -- List of compiled languages (expects run_release, build_release and build_debug on languages of this list)
     is_compiled = {"rust", "c", "cpp"},
-    -- List of interpreted languages. This exists, because lua sucks.
+    -- List of interpreted languages..
     is_interpreted = {"python", "lua"},
+    -- Commands to run the tests for the program.
+    testing = {
+        rust = "cargo test",
+    },
     rust = {
         run_debug = "cargo run",
         run_release = "cargo run --release",
@@ -59,7 +63,7 @@ function parse_command(str)
     return res
 end
 
--- Argument must be nil or a string "release" or "" (empty).
+-- Argument must be nil, an empty string ("") or "release".
 function M.run(mode)
     local ft = vim.bo.filetype
 

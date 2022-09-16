@@ -14,12 +14,6 @@ return require("packer").startup(function()
    	    },
 	}
 	use {
-        "numToStr/Comment.nvim",
-   	    config = function()
-      	    require("Comment").setup()
-        end,
-    }
-	use {
 		"hrsh7th/nvim-cmp",
    	    requires = {
       	    "L3MON4D3/LuaSnip",
@@ -57,4 +51,5 @@ return require("packer").startup(function()
     use "norcalli/nvim-colorizer.lua"
     use "ahmedkhalf/project.nvim"
     use "sbdchd/neoformat"
+    use 'dstein64/nvim-scrollview'
 end)

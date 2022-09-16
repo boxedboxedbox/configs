@@ -25,7 +25,7 @@ keymap("n", "<C-Down>", "<C-w>j", opts)
 keymap("n", "<C-Up>", "<C-w>k", opts)
 keymap("n", "<C-Right>", "<C-w>l", opts)
 -- Split windows (sf)
-keymap("n", "sf", ":vs<CR>", opts)
+keymap("n", "sa", ":vs<CR>", opts)
 -- Close split windows (sd)
 keymap("n", "sd", "<C-w>c", opts)
 -- Write changes (ctrl + s)
@@ -34,11 +34,16 @@ keymap("i", "<C-s>", "<cmd>w<CR>", opts)
 -- Move backwards/forwards a word (q/w) 
 keymap("n", "q", "b", opts)
 -- Jump to the start/end of current line (u/i)
-keymap("n", ";", "0", opts)
-keymap("n", "'", "$", opts)
+keymap("n", ",", "0", opts)
+keymap("n", ".", "$", opts)
 -- Undo (ctrl + z)
 keymap("n", "<C-z>", "<cmd>u<CR>", opts)
 keymap("i", "<C-z>", "<cmd>u<CR>", opts)
+-- Resize split windows (alt + left arrow/right arrow)
+keymap("i", "<A-Right>", "<cmd>vertical resize -10<CR>", opts)
+keymap("i", "<A-Left>", "<cmd>vertical resize +10<CR>", opts)
+keymap("n", "<A-Right>", "<cmd>vertical resize -10<CR>", opts)
+keymap("n", "<A-Left>", "<cmd>vertical resize +10<CR>", opts)
 -- }}
 
 -- Tabline {{{
@@ -110,4 +115,9 @@ keymap("n", "z", ":lua require('navigation.switchfiles').switch_files()<CR>", op
 keymap("n", "gr", ":lua require('utils.compile').run(nil)<CR>", opts)
 keymap("n", "gcr", ":lua require('utils.compile').run('release')<CR>", opts)
 keymap("n", "gce", ":lua require('utils.compile').build('release')<CR>", opts)
+-- }}}
+
+-- Comment {{{
+keymap("n", "ct", "v:lua.Comment.operator() . '_'", { noremap = true, silent = true, expr = true })
+keymap("v", "ct", ":<c-u>lua Comment.operator('visual')<CR>", opts)
 -- }}}
