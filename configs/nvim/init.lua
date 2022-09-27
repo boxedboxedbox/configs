@@ -7,12 +7,13 @@ vim.api.nvim_exec([[
     colorscheme gruvbox
 ]], false)
 
+require("core.plugins")
+
 require("core.autocmds")
 require("core.completion")
 require("core.keybinds")
 require("core.lsp")
 require("core.options")
-require("core.plugins")
 require("core.treesitter")
 
 require("navigation.files")

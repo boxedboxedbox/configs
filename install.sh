@@ -1,38 +1,42 @@
-sudo pacman -Sy unzip
+# Comment/uncomment parts of this file to customize installation.
+#
+# Note: different install script take different parameters.
+# Read the file before installation for maximum customization.
+# TL;DR: leave empty = option is disabled, anything (literally) = option is enabled.
+# Example: PARAM="" is disabled, PARAM="dwadawdaw" is enabled. 
 
-echo Configuring Git files...
-printf "Your username for Git\n>>> "
-read GIT_USERNAME
-printf "Your email for Git\n>>> "
-read GIT_EMAIL
-printf "Your GitHub account name\n>>> "
-read GITHUB_USERNAME
+if [ "$EUID" -ne 0 ]; then
+   HE=""
+else
+   HE="yes"
+fi
 
-sed -i "s/\$EMAIL/$GIT_EMAIL/" git/.gitconfig
-sed -i "s/\$NAME/$GIT_USERNAME/" git/.gitconfig
-sed -i "s/\$GHNAME/$GITHUB_USERNAME/" git/.gitconfig
+cd install-scripts
 
-echo Installing configuration files...
-cp -r alacritty ~/.config
-cp -r bottom ~/.config
-cp git/* ~
-cp -r neofetch ~/.config
-cp -r nvim ~/.config
-cp scripts/* ~
-cp other/cargo_completions ~/.cargo
-cp .bashrc ~/.bashrc
-cp -r wallpapers ~
+# Software
+#INSTALL_DIR="/usr/bin" HAS_ELEVATED="$HE" WAYLAND="" ./alacritty-setup.sh
+#INSTALL_DIR="/usr/bin" HAS_ELEVATED="$HE" ./bat-setup.sh
+#INSTALL_DIR="/usr/bin" HAS_ELEVATED="$HE" ./bottom-setup.sh
+#INSTALL_DIR="/usr/bin" HAS_ELEVATED="$HE" ./dust-setup.sh
+#INSTALL_DIR="/usr/bin" HAS_ELEVATED="$HE" ./exa-setup.sh
+#INSTALL_DIR="/usr/bin" HAS_ELEVATED="$HE" ./flameshot-setup.sh
+#INSTALL_DIR="/usr/bin" HAS_ELEVATED="$HE" ./hexyl-setup.sh
+#INSTALL_DIR="/usr/bin" HAS_ELEVATED="$HE" ./ripgrep-setup.sh
+#INSTALL_DIR="/usr/bin" HAS_ELEVATED="$HE" ./tokei-setup.sh
+#INSTALL_DIR="/usr/bin" HAS_ELEVATED="$HE" ./rust-analyzer-setup.sh
+#HAS_ELEVATED="$HE" ./nvim-setup.sh
+#./rust-setup.sh
 
-echo Installing fonts, icons and themes...
+# Configs
+#INSTALL_DIR=~/.config/ ./alacritty-config-setup.sh
+#INSTALL_DIR=~/.config/ ./bottom-config-setup.sh
+#INSTALL_DIR=~/.config/ ./neofetch-config-setup.sh
+#INSTALL_DIR=~/.config/ ./nvim-config-setup.sh
+#INSTALL_DIR=~ ./git-config-setup.sh
 
-unzip candy-icons-master.zip
-unzip fira-code.zip
-unzip Sweet-Dark.zip
-unzip bbxfwm.zip
+# Themes/icons/fonts/etc
+#INSTALL_DIR="/usr/share/icons"  HAS_ELEVATED="$HE" ./candy-icons-setup.sh
+#INSTALL_DIR="/usr/share/fonts"  HAS_ELEVATED="$HE" ./fira-code-setup.sh
+#INSTALL_DIR="/usr/share/themes" HAS_ELEVATED="$HE" ./Sweet-Dark-setup.sh
 
-sudo mv candy-icons /usr/share/icons
-sudo mv fira-code /usr/share/fonts
-sudo mv Sweet-Dark /usr/share/themes
-sudo mv boxedboxedxfwm /usr/share/themes
-
-echo Installation done!
+echo "Install complete!"
