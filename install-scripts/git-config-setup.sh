@@ -9,20 +9,28 @@ die() {
 echo "Installing git configs..."
 
 printf "Your username for Git\n>>> "
-read GIT_USERNAME
+read USERNAME
 
 printf "Your email for Git\n>>> "
-read GIT_EMAIL
+read EMAIL
 
 printf "Your GitHub account name\n>>> "
-read GITHUB_USERNAME
+read GITHUB_NAME
 
-sed -i "s/\$EMAIL/$GIT_EMAIL/" ../configs/git/.gitconfig
-sed -i "s/\$NAME/$GIT_USERNAME/" ../configs/git/.gitconfig
-sed -i "s/\$GHNAME/$GITHUB_USERNAME/" ../configs/git/.gitconfig
+cp ../configs/git/.gitconfig "$INSTALL_DIR" \
+    && echo "Successfully installed .gitconfig!"
+    || die "Error: Failed to install .gitconfig."
 
-cp -r ../configs/git "$INSTALL_DIR" \
-   && echo "Successfully installed git configs!"
-   || die "Error: Failed to install git configs."
+cp ../configs/git/.gitignore "$INSTALL_DIR" \
+    && echo "Successfully installed .gitignore!"
+    || die "Error: Failed to install .gitignore."
+
+cp ../configs/git/.gitmessage.txt "$INSTALL_DIR" \
+    && echo "Successfully installed .gitmessage.txt!"
+    || die "Error: Failed to install .gitmessage.txt"
+
+sed -i "s/EMAIL/$EMAIL/" "$INSTALL_DIR/.gitconfig"
+sed -i "s/NAME/$USERNAME/" "$INSTALL_DIR/.gitconfig"
+sed -i "s/GHNAME/$GITHUB_NAME/" "$INSTALL_DIR/.gitconfig"
 
 echo "Successfully installed git configs!"

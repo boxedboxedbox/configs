@@ -1,5 +1,5 @@
 [user]
-	name = NAME
+    name = NAME
     email = EMAIL
 
 [alias]
@@ -14,7 +14,7 @@
 [core]
     editor = nvim
     excludesfile = ~/.gitignore
-    tabwidth=4
+    tabwidth = 4
 
 [init]
     defaultBranch = master
