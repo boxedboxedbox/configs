@@ -1,10 +1,33 @@
 [user]
-    email = $EMAIL
-    name = $NAME
+	name = NAME
+    email = EMAIL
+
+[alias]
+    a = add .
+    co = checkout
+    ci = commit
+    cm = commit -m
+    st = status
+    cp = cherry-pick
+    amend = commit --amend
+
 [core]
-    excludesfile = ~/.gitignore
     editor = nvim
+    excludesfile = ~/.gitignore
+    tabwidth=4
+
 [init]
     defaultBranch = master
+
+[status]
+    short = true
+
+[fetch]
+    prune = true
+
+[commit]
+    template = ~/.gitmessage.txt
+
 [github]
-    user = $GHNAME
+    user = GHNAME
+

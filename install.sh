@@ -1,9 +1,11 @@
 # Comment/uncomment parts of this file to customize installation.
 #
 # Note: different install script take different parameters.
-# Read the file before installation for maximum customization.
-# TL;DR: leave empty = option is disabled, anything (literally) = option is enabled.
-# Example: PARAM="" is disabled, PARAM="dwadawdaw" is enabled. 
+# Read the setup script before installation for maximum customization.
+# Leaving an option empty = option is disabled, writing anything (literally) = option is enabled.
+# Example: PARAM="" is disabled, PARAM="dwadawdaw" or PARAM="yes" is enabled. 
+#
+# Note: Even if run with elevated privileges, some installers still might need user interaction.
 
 if [ "$EUID" -ne 0 ]; then
    HE=""
@@ -24,6 +26,7 @@ cd install-scripts
 #INSTALL_DIR="/usr/bin" HAS_ELEVATED="$HE" ./ripgrep-setup.sh
 #INSTALL_DIR="/usr/bin" HAS_ELEVATED="$HE" ./tokei-setup.sh
 #INSTALL_DIR="/usr/bin" HAS_ELEVATED="$HE" ./rust-analyzer-setup.sh
+#HAS_ELEVATED="$HE" LIBCURL="" DISABLE_LIBXINERAMA="" LIBEXIF="" LIBMAGIC="" ./feh-setup.sh
 #HAS_ELEVATED="$HE" ./nvim-setup.sh
 #./rust-setup.sh
 
