@@ -16,6 +16,7 @@ fi
 cd install-scripts
 
 # Software
+#./rust-setup.sh
 #INSTALL_DIR="/usr/bin" HAS_ELEVATED="$HE" WAYLAND="" ./alacritty-setup.sh
 #INSTALL_DIR="/usr/bin" HAS_ELEVATED="$HE" ./bat-setup.sh
 #INSTALL_DIR="/usr/bin" HAS_ELEVATED="$HE" ./bottom-setup.sh
@@ -28,7 +29,6 @@ cd install-scripts
 #INSTALL_DIR="/usr/bin" HAS_ELEVATED="$HE" ./rust-analyzer-setup.sh
 #HAS_ELEVATED="$HE" LIBCURL="" DISABLE_LIBXINERAMA="" LIBEXIF="" LIBMAGIC="" ./feh-setup.sh
 #HAS_ELEVATED="$HE" ./nvim-setup.sh
-#./rust-setup.sh
 
 # Configs
 #INSTALL_DIR=~/.config/ ./alacritty-config-setup.sh
