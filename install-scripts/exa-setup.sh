@@ -4,48 +4,48 @@
 # SAVE_SRC: Whether to save the source. Optional.
 
 die() {
-   echo $1
-   exit 1
+    echo $1
+    exit 1
 }
 
 if [ -z $HAS_ELEVATED ]; then
-   SUDO="sudo"
+    SUDO="sudo"
 else
-   SUDO=""
+    SUDO=""
 fi
 
 
 echo "Installing exa..."
 
 if ! [[ -e "./build" ]]; then
-   mkdir build
+    mkdir build
 fi
 
 cd build
 
 
 git clone https://github.com/ogham/exa \
-   && echo "Successfully cloned exa!" \
-   || die "Error: Failed to clone exa."
+    && echo "Successfully cloned exa!" \
+    || die "Error: Failed to clone exa."
 
 cd exa
 
 
 # Building
 RUSTFLAGS="-Ctarget-cpu=native" cargo build --release \
-   && echo "Successfully built exa!" \
-   || die "Error: Failed to build exa."
+    && echo "Successfully built exa!" \
+    || die "Error: Failed to build exa."
 
 
 "$SUDO" cp "target/release/exa" "$INSTALL_DIR" \
-   && echo "Successfully installed exa (binary)!" \
-   || die "Error: Failed to install exa (binary)."
+    && echo "Successfully installed exa (binary)!" \
+    || die "Error: Failed to install exa (binary)."
 
 cd ..
 
 
 if [ -z $SAVE_SRC ]; then
-   rm -rf exa
+    rm -rf exa
 fi
 
 cd ..

@@ -27,7 +27,7 @@ cp ../fira-code.zip .
 unzip fira-code.zip
 
 "$SUDO" cp -r fira-code "$INSTALL_DIR" \
-   && echo "Successfully installed fira-code!"
+   && echo "Successfully installed fira-code!" \
    || die "Error: Failed to install fira-code."
 
 cd ..

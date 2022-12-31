@@ -27,7 +27,7 @@ cp ../candy-icons.zip .
 unzip candy-icons.zip
 
 "$SUDO" cp -r candy-icons "$INSTALL_DIR" \
-   && echo "Successfully installed candy-icons!"
+   && echo "Successfully installed candy-icons!" \
    || die "Error: Failed to install candy-icons."
 
 cd ..

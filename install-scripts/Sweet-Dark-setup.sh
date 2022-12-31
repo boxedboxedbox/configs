@@ -27,7 +27,7 @@ cp ../Sweet-Dark.zip .
 unzip Sweet-Dark.zip
 
 "$SUDO" cp -r Sweet-Dark "$INSTALL_DIR" \
-   && echo "Successfully installed Sweet-Dark!"
+   && echo "Successfully installed Sweet-Dark!" \
    || die "Error: Failed to install Sweet-Dark."
 
 cd ..

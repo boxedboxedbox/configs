@@ -4,48 +4,48 @@
 # SAVE_SRC: Whether to save the source. Optional.
 
 die() {
-   echo $1
-   exit 1
+    echo $1
+    exit 1
 }
 
 if [ -z $HAS_ELEVATED ]; then
-   SUDO="sudo"
+    SUDO="sudo"
 else
-   SUDO=""
+    SUDO=""
 fi
 
 
 echo "Installing bat..."
 
 if ! [[ -e "./build" ]]; then
-   mkdir build
+    mkdir build
 fi
 
 cd build
 
 
 git clone https://github.com/sharkdp/bat.git \
-   && echo "Successfully cloned bat!" \
-   || die "Error: Failed to clone bat."
+    && echo "Successfully cloned bat!" \
+    || die "Error: Failed to clone bat."
 
 cd bat
 
 
 # Building
 RUSTFLAGS="-Ctarget-cpu=native" cargo build --release \
-   && echo "Successfully built bat!" \
-   || die "Error: Failed to build bat."
+    && echo "Successfully built bat!" \
+    || die "Error: Failed to build bat."
 
 
 "$SUDO" cp "target/release/bat" "$INSTALL_DIR" \
-   && echo "Successfully installed bat (binary)!" \
-   || die "Error: Failed to install bat (binary)."
+    && echo "Successfully installed bat (binary)!" \
+    || die "Error: Failed to install bat (binary)."
 
 cd ..
 
 
 if [ -z $SAVE_SRC ]; then
-   rm -rf bat
+    rm -rf bat
 fi
 
 cd ..
