@@ -16,7 +16,7 @@ fi
 cd install-scripts
 
 # Software
-#./rust-setup.sh
+#INSTALL_DIR="~/.cargo/" ./rust-setup.sh
 #INSTALL_DIR="/usr/bin" HAS_ELEVATED="$HE" WAYLAND="" ./alacritty-setup.sh
 #INSTALL_DIR="/usr/bin" HAS_ELEVATED="$HE" ./bat-setup.sh
 #INSTALL_DIR="/usr/bin" HAS_ELEVATED="$HE" ./bottom-setup.sh
@@ -31,6 +31,7 @@ cd install-scripts
 #HAS_ELEVATED="$HE" LIBCURL="" DISABLE_LIBXINERAMA="" LIBEXIF="" LIBMAGIC="" ./feh-setup.sh
 #HAS_ELEVATED="$HE" ./nvim-setup.sh
 #./pwndbg-setup.sh
+#./pwntools-setup.sh
 
 # Configs
 #INSTALL_DIR=~/.config/ ./alacritty-config-setup.sh
