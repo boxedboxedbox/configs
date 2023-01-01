@@ -3,7 +3,6 @@
 # DONT_INSTALL_DEPS: Name says it. Optional.
 # WAYLAND: Build with support for wayland. Optional.
 # INSTALL_DIR: Where to install.
-# SAVE_SRC: Whether to save the source. Optional.
 
 die() {
     echo $1
@@ -60,13 +59,5 @@ fi
     || die "Error: Failed to install Alacritty (binary)."
 
 cd ..
-
-
-if [ -z $SAVE_SRC ]; then
-    rm -rf alacritty
-fi
-
-cd ..
-
 
 echo "Installation of Alacritty was successful!"

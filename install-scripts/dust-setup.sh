@@ -1,7 +1,6 @@
 # Options:
 # HAS_ELEVATED: Whether sudo is needed. Optional.
 # INSTALL_DIR: Where to install the binary.
-# SAVE_SRC: Whether to save the source. Optional.
 
 die() {
     echo $1
@@ -42,13 +41,5 @@ RUSTFLAGS="-Ctarget-cpu=native" cargo build --release \
     || die "Error: Failed to install dust (binary)."
 
 cd ..
-
-
-if [ -z $SAVE_SRC ]; then
-    rm -rf dust
-fi
-
-cd ..
-
 
 echo "Installation of dust was successful!"

@@ -1,7 +1,6 @@
 # Options:
 # HAS_ELEVATED: Whether sudo is needed. Optional.
 # DONT_INSTALL_DEPS: Name says it. Optional.
-# SAVE_SRC: Whether to save the source. Optional.
 
 die() {
     echo $1
@@ -49,13 +48,5 @@ make CMAKE_BUILD_TYPE=Release \
     || die "Error: Failed to install neovim (binary)."
 
 cd ..
-
-
-if [ -z $SAVE_SRC ]; then
-    rm -rf neovim
-fi
-
-cd ..
-
 
 echo "Installation of was neovim successful!"

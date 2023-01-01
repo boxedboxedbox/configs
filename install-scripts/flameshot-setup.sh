@@ -2,7 +2,6 @@
 # HAS_ELEVATED: Whether sudo is needed. Optional.
 # DONT_INSTALL_DEPS: Name says it. Optional.
 # INSTALL_DIR: Where to install the binary.
-# SAVE_SRC: Whether to save the source. Optional.
 
 die() {
     echo $1
@@ -57,13 +56,5 @@ make \
     || die "Error: Failed to install Flameshot (binary)."
 
 cd ../..
-
-
-if [ -z $SAVE_SRC ]; then
-    rm -rf flameshot
-fi
-
-cd ..
-
 
 echo "Installation of Flameshot was successful!"

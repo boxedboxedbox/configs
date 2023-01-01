@@ -1,7 +1,6 @@
 # Options:
 # HAS_ELEVATED: Whether sudo is needed. Optional.
 # DONT_INSTALL_DEPS: Name says it. Optional.
-# SAVE_SRC: Whether to save the source. Optional.
 # LIBCURL: Build with libcurl. Optional.
 # DISABLE_LIBXINERAMA: Don't build with libxinerama. Optional.
 # LIBEXIF: Build with libexif. Optional.
@@ -95,12 +94,6 @@ make curl="$LIBCURL" exif="$LIBEXIF" xinerama="$LIBXINERAMA" magic="$LIBMAGIC" \
 "$SUDO" make install app=1 \
     && echo "Successfully installed feh!" \
     || die "Error: Failed to install feh."
-
-cd ..
-
-if [ -z $SAVE_SRC ]; then
-    rm -rf feh
-fi
 
 cd ..
 

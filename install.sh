@@ -27,8 +27,10 @@ cd install-scripts
 #INSTALL_DIR="/usr/bin" HAS_ELEVATED="$HE" ./ripgrep-setup.sh
 #INSTALL_DIR="/usr/bin" HAS_ELEVATED="$HE" ./tokei-setup.sh
 #INSTALL_DIR="/usr/bin" HAS_ELEVATED="$HE" ./rust-analyzer-setup.sh
+#INSTALL_DIR="/opt/tools" HAS_ELEVATED="$HE" ./ghidra-setup.sh
 #HAS_ELEVATED="$HE" LIBCURL="" DISABLE_LIBXINERAMA="" LIBEXIF="" LIBMAGIC="" ./feh-setup.sh
 #HAS_ELEVATED="$HE" ./nvim-setup.sh
+#./pwndbg-setup.sh
 
 # Configs
 #INSTALL_DIR=~/.config/ ./alacritty-config-setup.sh
@@ -41,5 +43,9 @@ cd install-scripts
 #INSTALL_DIR="/usr/share/icons"  HAS_ELEVATED="$HE" ./candy-icons-setup.sh
 #INSTALL_DIR="/usr/share/fonts"  HAS_ELEVATED="$HE" ./fira-code-setup.sh
 #INSTALL_DIR="/usr/share/themes" HAS_ELEVATED="$HE" ./Sweet-Dark-setup.sh
+
+# Keep files?
+# Comment this line to keep them.
+rm -rf build
 
 echo "Install complete!"
