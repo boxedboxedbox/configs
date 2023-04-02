@@ -14,18 +14,21 @@ opts = {
         rust = "cargo test",
     },
     rust = {
+        make_if_some = true,
         run_debug = "cargo run",
         run_release = "cargo run --release",
         build_debug = "cargo build",
         build_release = "cargo build --release",
     },
     c = {
+        make_if_some = true,
         run_debug = nil,
         run_release = nil,
         build_debug = "make",
         build_release = "make build",
     },
     cpp = {
+        make_if_some = true,
         run_debug = nil,
         run_release = nil,
         build_debug = "make",
@@ -35,6 +38,19 @@ opts = {
         run = "python #"
     },
 }
+
+function make_exists()
+    local cur = io.open("Makefile", "r")
+    local parent = io.open("../Makefile", "r")
+
+    if cur ~= nil or parent ~= nil
+    then
+        io.close(cur)
+        return true
+    else
+        return false
+    end
+end
 
 function split(str)
     local res = {}
@@ -80,10 +96,19 @@ function M.run(mode)
         then
             if(mode == "release")
             then
-                command = opts[ft].run_release
-            elseif(mode == "" or mode == nil)
-            then
-                command = opts[ft].run_debug
+                if(opts[ft].make_if_some ~= nil and opts[ft].make_if_some and make_exists())
+                then
+                    command = "make"
+                else
+                    command = opts[ft].run_release
+                end
+            else
+                if(opts[ft].make_if_some ~= nil and opts[ft].make_if_some and make_exists())
+                then
+                    command = "make"
+                else
+                    command = opts[ft].run_debug
+                end
             end
         end
     end
@@ -100,9 +125,7 @@ function M.run(mode)
 end
 
 function M.build(mode)
-    -- Should I do both build and run in same function, or will it be too slow?
-    -- Or do I make both run and build call some function that does the heavy lifting?
-    print "Not implemented yet and I'm not sure if I ever will."
+    print "Not implemented yet and I'm not sure if it ever will, because I'm lazy."
 end
 
 return M

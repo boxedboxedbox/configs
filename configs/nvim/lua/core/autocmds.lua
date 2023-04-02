@@ -2,7 +2,7 @@ vim.api.nvim_exec([[let g:python_highlight_space_errors = 0]], false)
 
 vim.api.nvim_exec([[au BufWritePre *.rs lua vim.lsp.buf.format(nil, 200)]], false)
 vim.api.nvim_exec([[au CursorHold * lua vim.diagnostic.open_float(nil, { focusable = false })]], false)
-vim.api.nvim_exec([[au BufWritePost *.c, *.cpp, *.py lua require('lint').try_lint()]], false)
+vim.api.nvim_exec([[au BufWritePost *.c,*.cpp,*.h,*.hpp silent exec "!$HOME/scripts/clang-format-all src/"]], false)
 
 vim.api.nvim_exec([[au BufRead,BufNewFile *.jpg,*.png,*.gif,*.jpeg set filetype=image]], false)
 vim.api.nvim_exec([[au BufRead,BufNewFile *.mp3,*.flac,*.wav,*.ogg set filetype=audio]], false)

@@ -1,4 +1,4 @@
-opts = {
+local opts = {
     file_types = {"c", "cpp", "h", "hpp"},
     locations = {"../include", "."},
     c = {"h"},

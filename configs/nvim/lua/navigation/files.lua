@@ -12,13 +12,10 @@ require("project_nvim").setup({
 require("nvim-tree").setup {
     auto_reload_on_write = true,
     create_in_closed_folder = false,
-    disable_netrw = false,
+    disable_netrw = true,
     hijack_cursor = false,
     hijack_netrw = true,
     hijack_unnamed_buffer_when_opening = false,
-    ignore_buffer_on_setup = false,
-    open_on_setup = false,
-    open_on_setup_file = false,
     open_on_tab = false,
     sort_by = "name",
     update_cwd = true,
@@ -28,7 +25,6 @@ require("nvim-tree").setup {
         adaptive_size = false,
         centralize_selection = false,
         width = 25,
-        height = 25,
         hide_root_folder = false,
         side = "left",
         preserve_window_proportions = false,
@@ -36,10 +32,7 @@ require("nvim-tree").setup {
         relativenumber = false,
         signcolumn = "yes",
         mappings = {
-            custom_only = true,
-            list = {
-                -- custom mappings go here
-            },
+            custom_only = false,
         },
     },
     renderer = {
@@ -104,7 +97,6 @@ require("nvim-tree").setup {
         update_cwd = true,
         ignore_list = {},
     },
-    ignore_ft_on_setup = {},
     system_open = {
         cmd = "",
         args = {},
@@ -156,7 +148,7 @@ require("nvim-tree").setup {
             },
         },
         remove_file = {
-        close_window = true,
+            close_window = true,
         },
     },
     trash = {
